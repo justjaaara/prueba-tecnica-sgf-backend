@@ -13,11 +13,11 @@ export class CreateAnimalDto {
 
   @ApiProperty({
     description: 'Tipo de animal',
-    example: 'mamifero',
-    enum: ['ave', 'mamifero', 'anfibio', 'reptil', 'pez'],
+    example: 'MAMIFERO',
+    enum: AnimalType,
   })
   @IsString()
-  @IsIn(['ave', 'mamifero', 'anfibio', 'reptil', 'pez'])
+  @IsIn(['AVE', 'MAMIFERO', 'REPTIL', 'ANFIBIO', 'PEZ'])
   tipo: AnimalType;
 
   @ApiProperty({
