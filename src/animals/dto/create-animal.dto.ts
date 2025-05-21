@@ -1,6 +1,6 @@
 import { IsString, IsUrl, IsIn } from 'class-validator';
 
-export class AnimalCremalDto {
+export class CreateAnimalDto {
   @IsString()
   nombre: string;
 
