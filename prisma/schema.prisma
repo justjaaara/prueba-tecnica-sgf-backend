@@ -28,7 +28,7 @@ model Animal {
 enum AnimalType {
   AVE
   MAMIFERO
-  anfibios
+  ANFIBIO
   REPTIL
   PEZ
 }

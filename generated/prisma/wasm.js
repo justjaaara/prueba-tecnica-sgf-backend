@@ -145,7 +145,7 @@ exports.Prisma.AnimalOrderByRelevanceFieldEnum = {
 exports.AnimalType = exports.$Enums.AnimalType = {
   AVE: 'AVE',
   MAMIFERO: 'MAMIFERO',
-  anfibios: 'anfibios',
+  ANFIBIO: 'ANFIBIO',
   REPTIL: 'REPTIL',
   PEZ: 'PEZ'
 };

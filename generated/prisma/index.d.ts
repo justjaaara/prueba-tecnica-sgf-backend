@@ -26,7 +26,7 @@ export namespace $Enums {
   export const AnimalType: {
   AVE: 'AVE',
   MAMIFERO: 'MAMIFERO',
-  anfibios: 'anfibios',
+  ANFIBIO: 'ANFIBIO',
   REPTIL: 'REPTIL',
   PEZ: 'PEZ'
 };

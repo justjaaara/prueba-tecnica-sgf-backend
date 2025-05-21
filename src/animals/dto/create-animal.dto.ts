@@ -1,6 +1,8 @@
 import { IsString, IsUrl, IsIn } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
+import { AnimalType } from '../../../generated/prisma';
+
 export class CreateAnimalDto {
   @ApiProperty({
     description: 'Nombre del animal',
@@ -16,7 +18,7 @@ export class CreateAnimalDto {
   })
   @IsString()
   @IsIn(['ave', 'mamifero', 'anfibio', 'reptil', 'pez'])
-  tipo: string;
+  tipo: AnimalType;
 
   @ApiProperty({
     description: 'Descripción del animal',
