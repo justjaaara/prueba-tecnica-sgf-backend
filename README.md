@@ -24,57 +24,108 @@ API RESTful desarrollada con NestJS y TypeScript para gestionar información de 
 
 El servicio gestiona información de animales con las siguientes propiedades:
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| id | Int | Identificador único (auto-incrementable) |
-| nombre | String | Nombre del animal |
-| tipo | Enum | Categoría: AVE, MAMIFERO, ANFIBIO, REPTIL o PEZ |
-| descripcion | Text | Descripción detallada del animal |
-| wikipediaUrl | String | Enlace a su búsqueda en Wikipedia |
-| imagenUrl | String | URL de imagen representativa |
-| createdAt | DateTime | Fecha de creación del registro |
-| updatedAt | DateTime | Fecha de actualización del registro |
+| Campo        | Tipo     | Descripción                                     |
+| ------------ | -------- | ----------------------------------------------- |
+| id           | Int      | Identificador único (auto-incrementable)        |
+| nombre       | String   | Nombre del animal                               |
+| tipo         | Enum     | Categoría: AVE, MAMIFERO, ANFIBIO, REPTIL o PEZ |
+| descripcion  | Text     | Descripción detallada del animal                |
+| wikipediaUrl | String   | Enlace a su búsqueda en Wikipedia               |
+| imagenUrl    | String   | URL de imagen representativa                    |
+| createdAt    | DateTime | Fecha de creación del registro                  |
+| updatedAt    | DateTime | Fecha de actualización del registro             |
 
-## Requisitos
+## 🚀 Guía de Instalación Detallada
 
-- Node.js (v18 o superior)
-- MySQL
-- pnpm
+### Prerrequisitos
 
-## Instalación
+Antes de comenzar, asegúrate de tener instalado:
+
+- Node.js (v18 o superior) - [Descargar](https://nodejs.org/)
+- Git - [Descargar](https://git-scm.com/downloads)
+- Visual Studio Code (recomendado) - [Descargar](https://code.visualstudio.com/)
+- El backend del proyecto corriendo en http://localhost:3000
+
+### 1. Clonar e Instalar
 
 ```bash
+# Instalar pnpm globalmente
+npm install -g pnpm
+
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd prueba-tecnica-fsg-frontend
+
 # Instalar dependencias
-$ pnpm install
-
-# Configurar variables de entorno
-# Asegúrate de tener el archivo .env con la configuración correcta de la BD:
-# DATABASE_URL="mysql://usuario:contraseña@localhost:3306/animales_db"
-
-# Ejecutar migraciones de Prisma
-$ npx prisma migrate dev
-
-# Generar cliente Prisma
-$ npx prisma generate
+pnpm install
 ```
 
-## Ejecución
+### 2. Configuración del Entorno
+
+1. **Crear archivo de variables de entorno**:
+
+   - En la raíz del proyecto, crea un archivo llamado `.env`
+   - Copia y pega la siguiente configuración:
+
+   ```
+   VITE_API_URL_BACKEND=http://localhost:3000
+   ```
+
+2. **Verificar la estructura del proyecto**:
+   ```
+   src/
+   ├── components/
+   ├── services/
+   ├── types/
+   ├── App.tsx
+   └── main.tsx
+   ```
+
+### 3. Iniciar el Desarrollo
 
 ```bash
-# Modo desarrollo
-$ pnpm run start:dev
-
-# Modo producción
-$ pnpm run build
-$ pnpm run start:prod
+# Iniciar el servidor de desarrollo
+pnpm dev
 ```
+
+La aplicación estará disponible en:
+
+- URL: http://localhost:5173
+- Red local: http://127.0.0.1:5173
+
+### 4. Scripts Disponibles
+
+| Comando        | Descripción                           |
+| -------------- | ------------------------------------- |
+| `pnpm dev`     | Inicia el servidor de desarrollo      |
+| `pnpm build`   | Crea la versión de producción         |
+| `pnpm preview` | Previsualiza la versión de producción |
+| `pnpm test`    | Ejecuta los tests                     |
+
+### 5. Verificación del Proyecto
+
+Comprueba que todo funcione correctamente:
+
+1. **Conexión con el backend**:
+
+   - Verifica que el backend esté corriendo en http://localhost:3000
+   - Prueba el endpoint de prueba: http://localhost:3000/api
+
+2. **Funcionalidades principales**:
+   - [ ] El listado de animales se carga correctamente
+   - [ ] Las imágenes se muestran en las cards
+   - [ ] La búsqueda por ID funciona
+   - [ ] El formulario de creación se abre
+   - [ ] Los modales de detalle funcionan
 
 ## Endpoints de la API
 
 ### `GET /animals`
+
 Obtiene todos los animales registrados en la base de datos.
 
 **Respuesta**:
+
 ```json
 [
   {
@@ -92,12 +143,15 @@ Obtiene todos los animales registrados en la base de datos.
 ```
 
 ### `GET /animals/:id`
+
 Obtiene un animal específico por su ID.
 
 **Parámetros**:
+
 - `id`: ID del animal (número entero)
 
 **Respuesta exitosa (200)**:
+
 ```json
 {
   "id": 1,
@@ -112,6 +166,7 @@ Obtiene un animal específico por su ID.
 ```
 
 **Error (404)**:
+
 ```json
 {
   "statusCode": 404,
@@ -121,9 +176,11 @@ Obtiene un animal específico por su ID.
 ```
 
 ### `POST /animals`
+
 Crea un nuevo animal.
 
 **Cuerpo de la petición**:
+
 ```json
 {
   "nombre": "Águila",
@@ -135,6 +192,7 @@ Crea un nuevo animal.
 ```
 
 **Respuesta exitosa (201)**:
+
 ```json
 {
   "id": 2,
@@ -149,12 +207,15 @@ Crea un nuevo animal.
 ```
 
 ### `DELETE /animals/:id`
+
 Elimina un animal por su ID.
 
 **Parámetros**:
+
 - `id`: ID del animal a eliminar (número entero)
 
 **Respuesta exitosa (200)**:
+
 ```json
 {
   "id": 1,
@@ -169,6 +230,7 @@ Elimina un animal por su ID.
 ```
 
 **Error (404)**:
+
 ```json
 {
   "statusCode": 404,
